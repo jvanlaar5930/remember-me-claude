@@ -1,0 +1,33 @@
+{
+  "name": "create-claude-repo-memory",
+  "version": "0.1.0",
+  "description": "Scaffold Git-tracked Claude project memory files for any repository.",
+  "type": "module",
+  "bin": {
+    "create-claude-repo-memory": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "claude",
+    "ai",
+    "mcp",
+    "repository",
+    "project-map",
+    "repo-memory",
+    "developer-tools",
+    "cli"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
