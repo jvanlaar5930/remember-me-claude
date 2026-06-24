@@ -211,6 +211,47 @@ When multiple Claude agents work in parallel on the same repository:
 
 ---
 
+## Removing
+
+To completely remove everything this CLI added from a repository:
+
+**1 — delete the generated files**
+
+```bash
+rm CLAUDE.md
+rm -rf .claude/
+```
+
+**2 — remove the `.gitignore` block** (if you used `--no-gitignore`, skip this)
+
+Open `.gitignore` and delete this block:
+
+```gitignore
+# Claude local project memory/cache
+.claude-local/
+.claude/**/*.db
+.claude/**/*.sqlite
+.claude/**/*.sqlite3
+.claude/**/*.log
+```
+
+**3 — commit**
+
+```bash
+git rm CLAUDE.md
+git rm -r .claude/
+git add .gitignore
+git commit -m "Remove Claude project memory"
+```
+
+If you also installed the package globally, uninstall it:
+
+```bash
+npm uninstall -g create-claude-repo-memory
+```
+
+---
+
 ## Local development
 
 ```bash
