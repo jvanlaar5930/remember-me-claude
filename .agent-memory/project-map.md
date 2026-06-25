@@ -5,23 +5,27 @@ Template: generic
 
 ## Purpose
 
-Needs verification.
+CLI package that scaffolds `CLAUDE.md` plus a Git-tracked `.claude/` project-memory folder into an arbitrary repository.
 
 ## Tech Stack
 
-Needs verification.
+JavaScript ESM for Node.js 18+ with `commander` for the CLI.
 
 Include languages, frameworks, runtimes, package managers, databases, infrastructure, and major tools only after verifying from repository files.
 
 ## Repository Layout
 
-Needs verification.
+- `bin/cli.js`: command entry point for `create-claude-repo-memory`
+- `src/`: scaffold logic, path resolution, template substitution, and `.gitignore` updates
+- `templates/generic/`: generated `CLAUDE.md`, `.claude/*.md`, domain guidance, and prompt templates
+- `README.md`: usage, behavior, local development notes, and manual test plan
 
 Summarize important folders and what they contain.
 
 ## Entry Points
 
-Needs verification.
+- `bin/cli.js`: default command and `init` subcommand both scaffold the memory files
+- `src/init.js`: central generated file list and file creation flow
 
 Include application startup files, command-line entry points, background jobs, scheduled jobs, services, scripts, frontend entry points, test entry points, or infrastructure entry points as applicable.
 
@@ -38,7 +42,11 @@ For each major business or technical domain, capture:
 
 ## Critical Files
 
-Needs verification.
+- `src/init.js`
+- `bin/cli.js`
+- `templates/generic/CLAUDE.md`
+- `templates/generic/prompts/`
+- `README.md`
 
 List only files that future agent sessions should know about early.
 
@@ -58,13 +66,14 @@ Describe databases, file storage, queues, caches, state machines, migrations, sc
 
 ## Testing and Validation
 
-Needs verification.
+- No automated test suite is present in the repository today.
+- Validation currently relies on running `node ./bin/cli.js --cwd <temp-dir>` and checking the generated scaffold output.
 
 Describe test frameworks, test locations, validation commands, linting, formatting, type checking, QA workflows, or manual validation steps if discoverable.
 
 ## Build, Run, and Deployment
 
-Needs verification.
+- Package can be run locally with `node ./bin/cli.js --cwd <target-dir>` or linked/published through npm as documented in `README.md`.
 
 Describe package managers, build commands, runtime commands, deployment files, CI/CD, release workflow, environment behavior, or operational concerns if discoverable.
 
@@ -81,4 +90,5 @@ Describe package managers, build commands, runtime commands, deployment files, C
 
 ## Known Gotchas
 
-Needs verification.
+- Scaffolded file creation is additive by default; existing files are only overwritten with `--force`.
+- Template prompts live under `templates/generic/prompts/` and are copied into `.claude/prompts/` during init.

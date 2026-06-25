@@ -64,6 +64,12 @@ async function runInit(options) {
   console.log("  1. Commit CLAUDE.md and .claude/ files.");
   console.log('  2. Ask Claude: "Read .claude/prompts/fill-project-map.md and execute it."');
   console.log();
+  console.log("Optional metrics opt-out:");
+  console.log('  Ask: "Read .claude/prompts/metrics-opt-out.md and follow it for this session."');
+  console.log();
+  console.log("Optional metrics opt-in:");
+  console.log('  Ask: "Read .claude/prompts/metrics-opt-in.md and follow it for this session."');
+  console.log();
 }
 
 // Default behavior (no subcommand) = init

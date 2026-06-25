@@ -15,6 +15,8 @@ const FILE_LIST = [
   { source: "update-project-map.md", target: ".claude/update-project-map.md" },
   { source: "domains/README.md", target: ".claude/domains/README.md" },
   { source: "prompts/fill-project-map.md", target: ".claude/prompts/fill-project-map.md" },
+  { source: "prompts/metrics-opt-out.md", target: ".claude/prompts/metrics-opt-out.md" },
+  { source: "prompts/metrics-opt-in.md", target: ".claude/prompts/metrics-opt-in.md" },
 ];
 
 async function fileExists(filePath) {

@@ -96,3 +96,19 @@ Claude-specific project context is stored in:
 - `.claude/workflows.md`
 - `.claude/update-project-map.md`
 - `.claude/domains/`
+
+## Metrics Opt In / Opt Out
+
+Users can opt out of terminal-only metrics for a session with:
+
+```text
+Read .claude/prompts/metrics-opt-out.md and follow it for this session.
+```
+
+Users can opt back in with:
+
+```text
+Read .claude/prompts/metrics-opt-in.md and follow it for this session.
+```
+
+Opting out of metrics does not disable repo memory. It only disables the terminal/chat metrics summary.

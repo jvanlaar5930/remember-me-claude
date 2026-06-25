@@ -80,6 +80,32 @@ Claude keeps these files updated as it works. When it makes a change that affect
 
 ---
 
+## Measuring Repo Memory Impact
+
+Metrics are optional prompt-level guidance. This package does not add telemetry, analytics, network calls, automatic token counting, or metrics files.
+
+### Opting Out of Metrics
+
+Metrics are optional.
+
+To skip metrics for a session, ask:
+
+```text
+Read .claude/prompts/metrics-opt-out.md and follow it for this session.
+```
+
+This only disables the terminal/chat metrics summary. It does not disable repo memory.
+
+### Opting Back In
+
+To enable metrics again for a session, ask:
+
+```text
+Read .claude/prompts/metrics-opt-in.md and follow it for this session.
+```
+
+---
+
 ## Installation
 
 No installation required — use `npx`:
@@ -269,6 +295,26 @@ create-claude-repo-memory --cwd /tmp/test-project
 
 # Or invoke directly without linking
 node ./bin/cli.js --cwd /tmp/test-project
+```
+
+---
+
+## Manual test plan
+
+- `.claude/prompts/metrics-opt-out.md` exists
+- `.claude/prompts/metrics-opt-in.md` exists
+- `CLAUDE.md` mentions metrics opt in / opt out
+- `README.md` mentions opting out of metrics
+- `README.md` mentions opting back in to metrics
+- CLI output includes optional metrics opt-out and opt-in prompts
+
+Run the CLI in a temp folder and verify the generated prompt files exist:
+
+```bash
+mkdir /tmp/claude-memory-metrics-opt-test
+node /path/to/create-claude-repo-memory/bin/cli.js --cwd /tmp/claude-memory-metrics-opt-test
+test -f /tmp/claude-memory-metrics-opt-test/.claude/prompts/metrics-opt-out.md
+test -f /tmp/claude-memory-metrics-opt-test/.claude/prompts/metrics-opt-in.md
 ```
 
 ---
